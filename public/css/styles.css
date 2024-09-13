@@ -1,0 +1,1073 @@
+/* Setting up color schemes and basic measurements for consistency */
+:root {
+    --main-bg-color: #ffffff; 
+    --primary-color: #FDF6EB;  
+    --text-color: #263238;        
+    --link-color: #fff;       
+    --hover-bg-color: #555555;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+    --font-family: 'Arial', sans-serif;
+}
+
+/* Base typography */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--main-bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+/* Fluid typography using clamp() */
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+p, li, a { font-size: clamp(1rem, 2vw, 1.2rem); }
+
+/* Responsive typography */
+@media (min-width: 1920px) {
+    :root { font-size: 20px; }
+    h1 { font-size: clamp(3.5rem, 7vw, 6rem); }
+    h2 { font-size: clamp(3rem, 6vw, 5rem); }
+}
+
+@media (min-width: 1440px) {
+    :root { font-size: 18px; }
+    h1 { font-size: clamp(3rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Button styles */
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+
+/* Responsive images and media */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Grid & Flexbox Layouts */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+}
+
+.col {
+    flex: 1 1 100%;
+    padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+    
+}
+
+@media (min-width: 992px) {
+    .col-lg-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+}
+
+/* Footer styles */
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+/* Button styles */
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Content Area Styling */
+main {
+    max-width: 120rem; /* 1440px */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (max-width: 992px) {
+    main {
+        padding: 0 0.5rem;
+    }
+}
+/* For screens smaller than 576px */
+@media (max-width: 576px) {
+    :root {
+        font-size: 14px; /* Reduce the base font size */
+    }
+
+    h1 { 
+        font-size: clamp(1.5rem, 6vw, 2.5rem); /* Smaller heading size */
+    }
+    h2 { 
+        font-size: clamp(1.2rem, 5vw, 2rem); /* Adjusted heading size */
+    }
+
+    /* Adjust spacing for mobile */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Stack columns vertically */
+    .col {
+        flex: 1 1 100%; /* Full width */
+        max-width: 100%;
+        padding: 0.25rem; /* Reduce padding */
+    }
+
+    /* Reduce button padding */
+    .button {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem; /* Smaller font size for buttons */
+    }
+
+    /* Footer adjustments */
+    footer {
+        padding: 10px;
+    }
+    
+    footer p {
+        font-size: 1rem; /* Adjust footer text size */
+    }
+
+    /* Reduce margin for rows */
+    .row {
+        margin: -0.25rem; /* Less negative margin */
+    }
+
+    /* Main content area */
+    main {
+        padding: 0 0.5rem; /* Less padding on smaller screens */
+    }
+
+    /* Responsive images */
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Typography for small screens */
+    p, li, a {
+        font-size: clamp(0.875rem, 4vw, 1rem); /* Smaller text for small screens */
+    }
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Header and navigation styling */
+.site-header {
+    padding: 1rem;
+}
+
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Distribute space between logo, nav, and button */
+    padding: 0 2rem; /* Apply padding only to the left and right */
+    background-color: #fff;
+}
+
+
+.logo-container img {
+    height: 2.5rem; 
+    margin-right: 1.875rem; 
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin-left: 0 0.9375rem; 
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.625rem; 
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    color: #FF6900;
+}
+
+.contact-button-container {
+    flex: 1; /* Flexible space */
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+}
+
+.contact-button-container button {
+    padding: 0.5rem 1.25rem; /* Adjusted to rem */
+    background-color: #FF6900;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button-container button:hover {
+    background-color: #c44d30; /* Darker shade on hover */
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Styling for search input */
+.search-container {
+    margin-left:  0.625rem; 
+    position: relative;
+    display: inline-block;
+    width: 200px; 
+}
+
+#searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; 
+    box-sizing: border-box;
+    margin-bottom: 4px;
+}
+
+#searchInput:focus {
+    outline: #fff;
+    border-color: #FF6900;
+    background-color: #fff;
+}
+
+#searchResults p:last-child {
+    border-bottom: none;
+}
+
+#searchDropdown {
+    position: absolute;
+    top: 100%; /* Position it right below the input field */
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* Initially hidden */
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+#searchDropdown.active {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+/*-------------------------------------------*/
+
+/* Hamburger Menu Styling */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    transition: 0.3s;
+}
+
+
+/* Responsive menu for smaller screens */
+@media (max-width: 768px) {
+    /* Hide menu links, search bar, and contact button on small screens */
+    .nav-menu,
+    .search-container,
+    .contact-button-container {
+        display: none;
+    }
+
+    /* Show the hamburger on small screens */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Show menu when hamburger is clicked */
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #333;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    /* Search and contact button show up when active */
+    .search-container.active,
+    .contact-button-container.active {
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+    }
+
+    /* Animate the hamburger to X when active */
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; /* Hide middle bar */
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Hero section */
+.hero-header {
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh; /* Ensure the hero section covers full viewport height */
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; /* Centers text and image */
+    gap: 2rem;
+    position: relative;
+    height: 100vh; /* Ensures the hero takes full viewport height */
+}
+
+.hero-text-container {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center; /* Center the text */
+    z-index: 2; /* Ensure text is above the image */
+    color: white;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure the image is behind the text */
+    overflow: hidden; /* Ensures no overflow from the image */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Image covers the entire container and maintains aspect ratio */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: 1.5rem; /* Space above the button */
+    position: relative;
+    z-index: 2;
+}
+
+.buttons button {
+    padding: 0.75rem 1.5rem;
+    background-color: #00BCD4;
+    color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #0096aa;
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Banner styling  */
+.feature-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 5rem; 
+    gap: 5rem;
+    background-color: #00BCD4;
+}
+
+.feature-text {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-title, .tagline, .feature-details {
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+
+.feature-details {
+    width: 100%; 
+    text-align: left;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.feature-list li {
+    margin-bottom: 0.9375rem;
+    color: #fff;
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Rides and Attractions section, How It Works Section */
+.rides-section {
+    padding: 4rem; 
+    background-color: var(--main-bg-color);
+}
+
+.content-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1 1 300px;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #fbfbfb;
+}
+
+.card img {
+    width: 100%;  
+    height: auto;
+}
+
+.text-container {
+    padding: 1.5rem;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: #f56a2a;
+    padding: 0.625rem;
+    cursor: pointer;
+    font-size: 1rem; 
+    transition: color 0.3s;
+}
+
+.text-button:hover {
+    color: #c44d30;
+}
+
+
+
+/*-------------------------------------------*/
+
+/* FAQ Section Styling */
+.faq-section {
+    padding: 7rem 2rem;  /* Converted to rem for better scaling */
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.faq-content-container {
+    max-width: 48rem; /* 768px in rem */
+    width: 100%;
+}
+
+.faq-accordion-container details {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+}
+
+.faq-accordion-container summary {
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-accordion-container p {
+    padding: 0.625rem; /* Consistency in rem */
+    text-align: left;
+}
+
+.faq-footer {
+    text-align: center;
+    padding-top: 1.25rem; /* 20px in rem */
+    border-top: 1px solid #ccc;
+}
+
+.faq-footer button {
+    margin-top: 0.625rem; /* 10px in rem */
+    background-color: var(--text-color);
+    color: var(--link-color);
+    border: none;
+    padding: 0.625rem 1.25rem; /* Padding in rem */
+    cursor: pointer;
+}
+
+.faq-footer button:hover {
+    background-color: var(--hover-bg-color);
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Footer styling */
+.site-footer {
+    padding: 9rem 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1 1 200px;
+}
+
+@media (max-width: 688px) {
+    .column-image {
+        display: none; /* Hides the logo on screens 576px or smaller */
+    }
+}
+.column-image img {
+    max-width: 6.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.column-1 h3, .column-2 h3 {
+    color: #333;
+    margin-top: 0;
+}
+
+.column-1 ul, .column-2 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.column-1 li, .column-2 li {
+    margin-bottom: 0.625rem;
+}
+
+.column-1 a, .column-2 a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.column-1 a:hover, .column-2 a:hover {
+    text-decoration: underline;
+}
+
+.column {
+    margin: 0 1.25rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+    justify-content: space-between; /* Space between form and image */
+    align-items: center; /* Centers the content vertically */
+    padding: 64px 128px; /* Padding on top and bottom, and a bit on the sides */
+    width: 100%;
+    box-sizing: border-box; /* Includes padding in width calculation */
+    gap: 32px; /* Add gap between elements for extra space */
+}
+
+.contact-form-container {
+    flex: 1 1 48%; /* Form container takes up about half of the available width */
+    max-width: 616px;
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 16px; /* Increase the space between each form element for better readability */
+}
+
+.contact-form-container label {
+    font-size: 1rem; /* Ensure labels have a readable font size */
+    color: #333;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%; /* Ensures inputs and textarea take full width of the form */
+    padding: 12px; /* Increased padding for better text visibility */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.contact-form-container textarea {
+    min-height: 150px; /* Ensures the textarea has enough height */
+    resize: vertical; /* Allow users to resize vertically */
+}
+
+.contact-form-container button {
+    padding: 12px 24px; /* Adjusted padding for a more balanced button */
+    background-color: #00BCD4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Ensures button aligns to the left */
+}
+
+.contact-form-container button:hover {
+    background-color: #0096aa;
+}
+
+.text-form-container {
+    margin-bottom: 20px;
+}
+
+.contact-image-container {
+    flex: 1 1 48%; /* Image container takes up the other half of the space */
+    max-width: 616px; /* Ensure image container doesn't exceed form width */
+    display: flex;
+    justify-content: center;
+}
+
+.contact-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.contact-info-map {
+    padding: 64px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Adjust layout for tablet sizes */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column; /* Stack form and image vertically */
+        padding: 48px 24px; /* Reduce padding for smaller screens */
+    }
+
+    .contact-form-container,
+    .contact-image-container {
+        flex: 1 1 100%; /* Full width for both form and image */
+        max-width: 100%; /* Remove max-width restriction */
+        padding: 0; /* Remove extra padding on smaller screens */
+    }
+
+    .contact-form-container form {
+        padding: 16px; /* Add some padding around the form */
+    }
+
+    .contact-form-container button {
+        width: 100%; /* Make the button take full width on smaller screens */
+        text-align: center; /* Center the button text */
+    }
+
+    .contact-image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Adjust layout for phone sizes */
+@media (max-width: 576px) {
+    .contact-section {
+        padding: 32px 16px; /* Further reduce padding */
+        gap: 24px; /* Reduce gap between elements */
+    }
+
+    .contact-form-container form {
+        gap: 12px; /* Reduce gap between form elements */
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+        padding: 10px; /* Smaller padding for inputs on phones */
+    }
+
+    .contact-form-container button {
+        padding: 10px 20px; /* Smaller button padding */
+    }
+
+    .contact-info-map {
+        padding: 32px 16px; /* Adjust padding for the map */
+    }
+}
+
+
+/* Styling for the cards displaying contact info */
+.contact-info-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allows the cards to wrap on smaller screens */
+    justify-content: space-around; /* Adjusts spacing for better alignment on smaller screens */
+    margin-bottom: 2.5rem; /* 40px in rem for consistency */
+    gap: 1.25rem; /* 20px in rem, adjust column-gap and row-gap together */
+}
+
+.info-card {
+    flex: 1 1 30%; /* Start with three columns layout */
+    text-align: center;
+    padding: 1.5rem; /* 24px in rem for better scaling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem; /* 8px in rem */
+    margin: 0 0.625rem; /* Half of gap to maintain spacing on wrap */
+}
+
+.info-card img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 0.625rem; /* 10px in rem */
+}
+
+/* Styles for the map and location information */
+.location-map iframe {
+    border-radius: 0.5rem; /* 8px expressed in rem for consistency */
+}
+
+.location-map {
+    margin-right: 0;
+    width: 100%;
+    height: 450px; /* Consider making this responsive */
+}
+
+
+/*-------------------------------------------*/
+
+/* Submitted Contacts section */
+
+.submitted-contacts-section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.submitted-contacts-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.submitted-contacts-section li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.submitted-contacts-section strong {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.submitted-contacts-section em {
+    font-style: normal;
+    color: #555;
+}
+
+
+/*-------------------------------------------*/
+
+/*Ride Page styling*/
+.ride-description {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.ride-content {
+    text-align: justify;
+    background-color: #ffffff;
+    padding: 1;
+}
+
+.ride-text {
+    margin-bottom: 1rem;
+}
+
+.ride-image img {
+    padding-bottom: 2rem;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+
+
+/*-------------------------------------------*/
+
+/* Memory Game section */
+.memory-game-section {
+    padding: 20px;
+    text-align: center;
+    background-color:  #F7F7F7; 
+    border-radius: 8px;
+}
+
+.memory-game {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(3, 100px); /* Create 3 columns each with 100px width */
+    grid-gap: 15px; /* Gap between the cards */
+    justify-content: center; /* Center the grid within the container */
+}
+
+.memory-card {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    perspective: 1000px;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.memory-card.flip .front-face {
+    transform: rotateY(180deg);
+}
+
+.memory-card.flip .back-face {
+    transform: rotateY(0deg);
+}
+
+.memory-card .front-face,
+.memory-card .back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    transition: transform 0.6s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Front face: initially hidden */
+.memory-card .front-face {
+    background-color: black;
+    border-radius: 8px;
+}
+
+/* Back face: the image side */
+.memory-card .back-face {
+    background-color: white;
+    transform: rotateY(180deg);
+}
+
+.memory-card:hover,
+.memory-card:focus {
+    transform: scale(1.05); /* Slightly enlarge cards on hover/focus */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.6); /* Shadow for depth */
+}
+
+.memory-card:focus {
+    border: 2px solid #FF6900; /* Highlight focus for accessibility */
+}
+
+.memory-card img {
+    max-width: 90%;
+    height: auto;
+}
+
+.memory-game-message {
+    text-align: center;
+    color: #263238;        
+    margin: 20px auto;
+    display: inline;
+}

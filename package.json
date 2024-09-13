@@ -1,0 +1,15 @@
+{
+  "name": "funland-amusement-park",
+  "version": "1.0.0",
+  "description": "Website for FunLand Amusement Park",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "sqlite3": "^5.1.7"
+  }
+}

@@ -1,0 +1,61 @@
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <div class="contact-form-container">
+                <div class="text-form-container">
+                    <h2>Get in Touch</h2>
+                    <p>We're here to help! Do not hesitate to reach out.</p>
+                </div>
+                <form action="/contact" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>                   
+        
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="contact-image-container">
+                <img src="/images/Contact page hero image.png" alt="Descriptive Alt Text">
+            </div>
+        </section>
+
+        <!-- Contact Information and Map -->
+        <section class="contact-info-map">
+            <!-- Contact Information Cards -->
+            <div class="contact-info-cards">
+                <div class="info-card">
+                    <img src="/images/Email.png" alt="Email Icon">
+                    <h4>Email</h4>
+                    <p>Reach us directly using the email listed below for swift assistance or give us a ring.</p>
+                    <a href="mailto:hello@relume.io">hello@funlandamusmentpark.com</a>
+                </div>
+                <div class="info-card">
+                    <img src="/images/Phone.png" alt="Phone Icon">
+                    <h4>Phone</h4>
+                    <p>Call us directly for immediate support or alternatively write us an email or visit us.</p>
+                    <a href="tel:+15550000000">+1 (555) 000-0000</a>
+                </div>
+                <div class="info-card">
+                    <img src="/images/Pin.png" alt="Location Icon">
+                    <h4>London Office</h4>
+                    <div class="location-details">
+                        <p>Address for our London office is at 123 Sample St, London W1C 1DE, United Kingdom</p>
+                        <a href="#" onclick="openMap();">View Map</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="locations-section">
+                <div class="location-map">
+                    <!-- Google Map Iframe -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+

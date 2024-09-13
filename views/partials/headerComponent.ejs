@@ -1,0 +1,43 @@
+<!-- Header with Navigation -->
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo-container">
+            <!-- Logo -->
+            <img src="/images/Logo.png" alt="FunLand Amusement Park Logo">
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Navigation Links (wrapped in nav-menu) -->
+        <nav class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/rides">Rides</a></li>
+                <li><a href="/submittedContacts">Submitted Contacts</a></li>
+            </ul>
+        </nav>
+
+        <!-- Search Section -->
+        <div class="search-container">
+            <form action="/search" method="GET">
+                <input type="text" id="searchInput" name="q" placeholder="Search for rides..." required>
+            </form>
+
+            <!-- Search results dropdown -->
+            <div id="searchDropdown" class="dropdown">
+                <!-- Dropdown items will be dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Contact Button -->
+        <div class="contact-button-container">
+            <button onclick="location.href='/contact'">Contact Us</button>
+        </div>
+    </div>
+</header>

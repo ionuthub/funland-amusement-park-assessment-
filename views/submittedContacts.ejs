@@ -1,0 +1,12 @@
+
+<h1><%= title %></h1>
+
+<% if (contacts.length > 0) { %>
+    <ul>
+        <% contacts.forEach(contact => { %>
+            <li><strong>Name:</strong> <%= contact.name %> | <strong>Email:</strong> <%= contact.email %> | <strong>Message:</strong> <%= contact.message %></li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No contacts submitted yet.</p>
+<% } %>
