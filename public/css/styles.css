@@ -243,16 +243,15 @@ main {
 .header-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: center; /* Vertically align items */
+    align-items: center;
     justify-content: space-between; /* Distribute space between logo, nav, and button */
-    padding: 0 2rem; /* Apply padding only to the left and right */
+    padding: 0 2rem;
     background-color: #fff;
 }
 
-
 .logo-container img {
-    height: 2.5rem; 
-    margin-right: 1.875rem; 
+    height: 2.5rem;
+    margin-right: 1.875rem;
 }
 
 .nav-links {
@@ -263,13 +262,13 @@ main {
 }
 
 .nav-links li {
-    margin-left: 0 0.9375rem; 
+    margin-left: 0 0.9375rem;
 }
 
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
-    padding: 0.625rem; 
+    padding: 0.625rem;
     transition: color 0.3s ease;
 }
 
@@ -297,23 +296,19 @@ main {
     background-color: #c44d30; /* Darker shade on hover */
 }
 
-
-
-/*-------------------------------------------*/
-
 /* Styling for search input */
 .search-container {
-    margin-left:  0.625rem; 
+    margin-left: 0.625rem;
     position: relative;
     display: inline-block;
-    width: 200px; 
+    width: 200px;
 }
 
 #searchInput {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%; 
+    width: 100%;
     box-sizing: border-box;
     margin-bottom: 4px;
 }
@@ -324,46 +319,6 @@ main {
     background-color: #fff;
 }
 
-#searchResults p:last-child {
-    border-bottom: none;
-}
-
-#searchDropdown {
-    position: absolute;
-    top: 100%; /* Position it right below the input field */
-    left: 0;
-    right: 0;
-    background-color: white;
-    z-index: 1000;
-    max-height: 200px;
-    overflow-y: auto;
-    display: none; /* Initially hidden */
-}
-
-.dropdown-item {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.dropdown-item:hover {
-    background-color: #ccc;
-    border-radius: 4px;
-}
-
-#searchDropdown.active {
-    display: block;
-}
-
-.dropdown-item {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.dropdown-item:hover {
-    background-color: #f0f0f0;
-}
 
 
 /*-------------------------------------------*/
@@ -374,19 +329,32 @@ main {
     flex-direction: column;
     cursor: pointer;
     z-index: 10;
+    background-color: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline when focused */
+    padding: 0; /* Remove padding */
+}
+
+.hamburger:focus {
+    outline: none; /* Remove focus outline */
 }
 
 .hamburger .bar {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: #263238; /* Adjust color as per your design */
     margin: 2px 0;
     transition: 0.3s;
 }
 
+/* Add hover effects if desired */
+.hamburger:hover .bar {
+    background-color: #FF6900; /* Change color on hover (optional) */
+}
+
 
 /* Responsive menu for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1057px) {
     /* Hide menu links, search bar, and contact button on small screens */
     .nav-menu,
     .search-container,
@@ -399,33 +367,78 @@ main {
         display: flex;
     }
 
-    /* Show menu when hamburger is clicked */
-    .nav-menu.active {
+    /* When the hamburger is active, the following elements will be visible */
+    .nav-menu.mobile-active,
+    .search-container.mobile-active,
+    .contact-button-container.mobile-active,
+    .logo-container.mobile-active {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 0;
         left: 0;
         right: 0;
-        background-color: #333;
+        background-color: white;
+        z-index: 1000; /* Ensure dropdown is above other elements */
+        padding: 2rem 1rem;
+        align-items: center;
     }
 
+    /* Ensure the logo stays visible and at the top */
+    .logo-container.mobile-active {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo-container img {
+        height: 3rem;
+    }
+
+    /* Aligning the navigation links */
     .nav-links {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
+        width: 100%; /* Ensure nav links take full width */
     }
 
     .nav-links li {
         margin: 1rem 0;
     }
 
-    /* Search and contact button show up when active */
-    .search-container.active,
-    .contact-button-container.active {
-        display: block;
+    /* Search and contact button show up when mobile-active is applied */
+    .search-container.mobile-active,
+    .contact-button-container.mobile-active {
+        display: flex;
         margin: 1rem auto;
         text-align: center;
+        width: 80%;
+    }
+
+    .search-container input {
+        width: 100%;
+        padding: 0.7rem;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    .contact-button-container button {
+        background-color: #FF6900;
+        color: white;
+        border: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%; /* Full width button in dropdown */
+    }
+
+    /* Ensure the hamburger stays in place when active */
+    .hamburger.active {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001; /* Above the dropdown */
     }
 
     /* Animate the hamburger to X when active */
@@ -441,6 +454,7 @@ main {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 }
+
 
 
 

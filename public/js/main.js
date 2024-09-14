@@ -85,13 +85,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('navMenu');
     const searchBar = document.querySelector('.search-container');
     const contactBtn = document.querySelector('.contact-button-container');
+    const logoContainer = document.querySelector('.logo-container'); // Add this line
 
     hamburger.addEventListener('click', function() {
-        // Toggle the active class for the hamburger and navigation menu
+        // Toggle the active class for all elements
         hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        searchBar.classList.toggle('active');
-        contactBtn.classList.toggle('active');
+        navMenu.classList.toggle('mobile-active');
+        searchBar.classList.toggle('mobile-active');
+        contactBtn.classList.toggle('mobile-active');
+        logoContainer.classList.toggle('mobile-active'); // Ensure logo is toggled
     });
 });
 
