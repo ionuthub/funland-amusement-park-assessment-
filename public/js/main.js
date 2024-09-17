@@ -1,3 +1,7 @@
+/*-------------------------------------------*/
+
+// Contact Form Section
+
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector("form");
     if (form) {
@@ -24,6 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+
 
 /*-------------------------------------------*/
 
@@ -76,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
 /*-------------------------------------------*/
 
 /* Hamburger Menu */
@@ -85,18 +92,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('navMenu');
     const searchBar = document.querySelector('.search-container');
     const contactBtn = document.querySelector('.contact-button-container');
-    const logoContainer = document.querySelector('.logo-container'); // Add this line
+    const logoContainer = document.querySelector('.logo-container');
 
     hamburger.addEventListener('click', function() {
-        // Toggle the active class for all elements
+        // Toggle the active class for the hamburger and mobile-active class for other elements
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('mobile-active');
         searchBar.classList.toggle('mobile-active');
         contactBtn.classList.toggle('mobile-active');
-        logoContainer.classList.toggle('mobile-active'); // Ensure logo is toggled
+        logoContainer.classList.toggle('mobile-active'); // Apply mobile-active to logo container as well
     });
 });
 
+
+
+/*-------------------------------------------*/
+
+/* Memory Game */
 
 document.addEventListener("DOMContentLoaded", () => {
     const memoryGameContainer = document.getElementById('memory-game');
@@ -201,14 +213,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayEndMessage() {
         const endMessage = document.createElement('h3');
         endMessage.textContent = "Bravo!";
-        endMessage.style.color = '#FF6900';
-        endMessage.style.marginTop = '20px';
-        endMessage.style.textAlign = 'center';
-        endMessage.style.display = 'inline-block';
-        endMessage.style.fontSize = '24px';
-        endMessage.style.fontWeight = 'bold';
-        memoryGameContainer.appendChild(endMessage);
-
+        endMessage.classList.add('game-end-message'); // Add the class
+        memoryGameContainer.parentNode.insertBefore(endMessage, memoryGameContainer.nextSibling); // Insert after the game container
+    
         // Show the reset button
         const resetButton = document.getElementById('reset-game');
         resetButton.style.display = 'block';
@@ -216,6 +223,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function resetGame() {
+        // Remove the "Bravo!" message and hide the button
+        const endMessage = document.querySelector('.game-end-message');
+        if (endMessage) {
+            endMessage.remove();
+        }
+    
+        const resetButton = document.getElementById('reset-game');
+        resetButton.style.display = 'none'; // Hide the reset button
+    
         // Reset game without reloading the page
         memoryGameContainer.innerHTML = ''; // Clear the container
         matchesFound = 0; // Reset match count
@@ -223,19 +239,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement('div');
             card.classList.add('memory-card');
             card.dataset.image = image;
-            
+    
             const frontFace = document.createElement('div');
             frontFace.classList.add('front-face');
-
+    
             const backFace = document.createElement('div');
             backFace.classList.add('back-face');
             const imgElement = document.createElement('img');
             imgElement.src = image;
             backFace.appendChild(imgElement);
-            
+    
             card.appendChild(frontFace);
             card.appendChild(backFace);
-            
+    
             memoryGameContainer.appendChild(card);
             card.addEventListener('click', flipCard); // Reattach event listener
         });

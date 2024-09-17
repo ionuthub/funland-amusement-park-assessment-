@@ -319,6 +319,35 @@ main {
     background-color: #fff;
 }
 
+#searchDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* Initially hidden */
+    border: 1px solid #ccc; /* Border for dropdown */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#searchDropdown.active {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0; /* Light grey on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
 
 
 /*-------------------------------------------*/
@@ -358,7 +387,7 @@ main {
     /* Hide menu links, search bar, and contact button on small screens */
     .nav-menu,
     .search-container,
-    .contact-button-container {
+    .contact-button-container{
         display: none;
     }
 
@@ -430,31 +459,28 @@ main {
         padding: 0.7rem 1.5rem;
         border-radius: 4px;
         cursor: pointer;
-        width: 100%; /* Full width button in dropdown */
+        width: 100%; 
     }
 
-    /* Ensure the hamburger stays in place when active */
     .hamburger.active {
         position: absolute;
         top: 20px;
         right: 20px;
-        z-index: 1001; /* Above the dropdown */
+        z-index: 1001;
     }
 
-    /* Animate the hamburger to X when active */
     .hamburger.active .bar:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
 
     .hamburger.active .bar:nth-child(2) {
-        opacity: 0; /* Hide middle bar */
+        opacity: 0; 
     }
 
     .hamburger.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 }
-
 
 
 
@@ -1008,16 +1034,56 @@ main {
 .memory-game-section {
     padding: 20px;
     text-align: center;
-    background-color:  #F7F7F7; 
+    background-color: #F7F7F7;
     border-radius: 8px;
+    position: relative;
+}
+
+#reset-game {
+    display: none; /* Initially hidden */
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #FF6900;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center; /* Ensure the button text is centered */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#reset-game:hover {
+    background-color: #cc5800;
+}
+
+.memory-game-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF6900;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block; /* Ensure the message takes its own space */
+    width: 100%; /* Full width for message centering */
+}
+
+.game-end-message {
+    color: #FF6900;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px auto; /* Ensure message has space from the content */
+    text-align: center;
+    display: block; /* Make it a block element for centering */
+    width: 100%;
 }
 
 .memory-game {
     display: grid;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(3, 100px); /* Create 3 columns each with 100px width */
-    grid-gap: 15px; /* Gap between the cards */
-    justify-content: center; /* Center the grid within the container */
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 15px;
+    justify-content: center; /* Center the cards */
+    margin-bottom: 20px; /* Space between cards and button */
 }
 
 .memory-card {
@@ -1051,13 +1117,11 @@ main {
     align-items: center;
 }
 
-/* Front face: initially hidden */
 .memory-card .front-face {
     background-color: black;
     border-radius: 8px;
 }
 
-/* Back face: the image side */
 .memory-card .back-face {
     background-color: white;
     transform: rotateY(180deg);
@@ -1067,21 +1131,5 @@ main {
 .memory-card:focus {
     transform: scale(1.05); /* Slightly enlarge cards on hover/focus */
     outline: none; /* Remove default focus outline */
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.6); /* Shadow for depth */
-}
-
-.memory-card:focus {
-    border: 2px solid #FF6900; /* Highlight focus for accessibility */
-}
-
-.memory-card img {
-    max-width: 90%;
-    height: auto;
-}
-
-.memory-game-message {
-    text-align: center;
-    color: #263238;        
-    margin: 20px auto;
-    display: inline;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.6);
 }
