@@ -35,14 +35,13 @@ const contactRoutes = require('./routes/contactRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const faqRoutes = require('./routes/faqRoutes');
 const ridesRoutes = require('./routes/rideRoutes');
-const submittedContactRoutes = require('./routes/submittedContactRoutes');
 
 // Use the routes
 app.use('/', homeRoutes);
 app.use('/faq', faqRoutes);
 app.use('/rides', ridesRoutes);
 app.use('/contact', contactRoutes);
-app.use('/submittedContacts', submittedContactRoutes);
+
 
 // Search route with database integration
 app.get('/search', (req, res) => {

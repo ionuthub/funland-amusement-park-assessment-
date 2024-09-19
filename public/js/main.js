@@ -21,13 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Please enter a valid email address!");
                 return;
             }
-  
-            alert("Message sent successfully!");
-            form.reset();
+
+            // Submit the form after validation
+            form.submit();
         });
     }
-
 });
+
 
 
 
@@ -40,19 +40,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     searchInput.addEventListener('input', function () {
         const query = this.value;
-        if (query.length > 2) { // Trigger search after 2 characters
+        if (query.length > 2) { 
             fetch(`/search?q=${encodeURIComponent(query)}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
-                    return response.json(); // Parse the JSON response
+                    return response.json();
                 })
                 .then(data => {
                     console.log('Processed data:', data);
 
                     if (data.length > 0) {
-                        // Create the dropdown items
                         searchDropdown.innerHTML = data.map(item => 
                             `<div class="dropdown-item" data-ride-name="${item.name}">
                                 ${item.name}
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.querySelectorAll('.dropdown-item').forEach(item => {
                             item.addEventListener('click', function () {
                                 const rideName = this.getAttribute('data-ride-name');
-                                window.location.href = `/rides?name=${encodeURIComponent(rideName)}`; // Navigate to a specific ride page
+                                window.location.href = `/rides?name=${encodeURIComponent(rideName)}`;
                             });
                         });
 
@@ -104,6 +103,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/*-------------------------------------------*/
+
+/* Nav-links Active */
+
+const navLinks = document.querySelectorAll('.nav-links a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        navLinks.forEach(link => link.classList.remove('active'));
+        link.classList.add('active');   
+
+
+        // Store the active page in local storage
+        localStorage.setItem('activePage', link.href);
+
+        // Navigate to the link's href attribute
+        window.location.href = link.href;
+    });
+});
+
+const activePage = localStorage.getItem('activePage');
+
+navLinks.forEach(link => {
+    if (link.href === activePage) {
+        link.classList.add('active');
+    }
+});
+
 
 
 /*-------------------------------------------*/
@@ -114,9 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const memoryGameContainer = document.getElementById('memory-game');
     
     const images = [
-        '/images/ferris wheel icon.png',
-        '/images/roller coaster icon.png',
-        '/images/water slide icon.png'
+        '/images/ferris-wheel-icon.png',
+        '/images/roller-coaster-icon.png',
+        '/images/water-slide-icon.png'
     ];
 
     const cardsArray = [...images, ...images]; // Duplicate array to create pairs

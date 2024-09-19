@@ -3,7 +3,13 @@ const router = express.Router();
 
 // Route to render the contact form (GET /)
 router.get('/', (req, res) => {
-    res.render('contact', { title: 'Contact Us' });  // Rendering with EJS layout
+    // Check for success message in query parameter
+    const successMessage = req.query.success === 'true' ? 'Your message has been sent successfully!' : null;
+
+    res.render('contact', { 
+        title: 'Contact Us', 
+        successMessage // Pass the success message to the template if present
+    });
 });
 
 // POST route for contact form submission
@@ -19,8 +25,12 @@ router.post('/', (req, res) => {
             console.error('Error inserting contact form data:', err.message);
             return res.status(500).send('Failed to submit your message.');
         }
-        res.redirect('/submittedContacts');  // Redirect to the contact page or success page
+
+        // Redirect to contact page with a success query parameter
+        res.redirect('/contact?success=true');
     });
 });
 
+
 module.exports = router;
+

@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const router = express.Router();
 
 // Route to display all submitted contacts
@@ -16,4 +16,4 @@ router.get('/', (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = router; */

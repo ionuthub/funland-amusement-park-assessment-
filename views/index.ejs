@@ -1,9 +1,14 @@
 
-    <main>
         <%- include('partials/heroComponent') %> <!-- Includes the Hero section -->
         <%- include('partials/bannerComponent') %> <!-- Includes the Banner section -->
         <%- include('partials/how-it-worksComponent') %> <!-- Includes the How It Works section -->
+        <section class="memory-game-section">
+            <h4 class="memory-game-message">FunLand Memory Challenge!</h4>
+            <p>Flip the cards to find matching pairs of your favorite FunLand rides. 
+              Can you remember where they are? 
+            </p>
+            <button id="reset-game" style="display:none;">Play Again</button>
+            <div id="memory-game" class="memory-game"></div>
+          </section>
         <%- include('partials/ridesComponent') %> <!-- Includes the Rides section -->
-
-    </main>
 
