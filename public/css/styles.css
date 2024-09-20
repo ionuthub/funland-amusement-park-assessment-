@@ -1091,37 +1091,6 @@ main {
 
 /*-------------------------------------------*/
 
-/* Submitted Contacts section */
-
-.submitted-contacts-section {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.submitted-contacts-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.submitted-contacts-section li {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-}
-
-.submitted-contacts-section strong {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.submitted-contacts-section em {
-    font-style: normal;
-    color: #555;
-}
-
-
-/*-------------------------------------------*/
-
 /*Ride Page styling*/
 .ride-description {
     display: flex;
